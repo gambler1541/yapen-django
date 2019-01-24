@@ -2,19 +2,22 @@ from django.db import models
 
 
 class Location(models.Model):
-    name = models.CharField(max_length=10)
-    location_number = models.CharField(max_length=10)
+    name = models.CharField(max_length=100)
+    location_number = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
 
 
 class Sub_location(models.Model):
-    name = models.CharField(max_length=10)
+    name = models.CharField(max_length=100)
     location = models.ForeignKey('Location',
                                  on_delete=models.CASCADE,
                                  related_name='sub_location',)
-    sub_location_number = models.CharField(max_length=10)
+    sub_location_number = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 
 class Pensions(models.Model):
@@ -22,7 +25,7 @@ class Pensions(models.Model):
     sub_location = models.ForeignKey('Sub_location',
                                      on_delete=models.CASCADE,
                                      related_name='pension',)
-    pension_img = models.ImageField(blank=True,)
+    pension_img = models.URLField(blank=True,)
     address = models.TextField(max_length=100, blank=True,)
     check_in = models.CharField(max_length=10, blank=True,)
     check_out = models.CharField(max_length=10, blank=True,)
@@ -30,13 +33,17 @@ class Pensions(models.Model):
     number_of_room = models.TextField(max_length=10, blank=True,)
     notice = models.TextField(max_length=100, blank=True,)
 
+    def __str__(self):
+        return self.name
+
 
 class Room(models.Model):
+    name = models.TextField(max_length=100)
     pension = models.ForeignKey('Pensions',
                                 on_delete=models.CASCADE,
                                 related_name='room',)
     # 방 이미지
-    room_img = models.ImageField(blank=True,)
+    room_img = models.URLField(blank=True,)
     # 방 구조
     room_structure = models.TextField(max_length=100, blank=True,)
     # 방 크기
