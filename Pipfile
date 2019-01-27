@@ -7,6 +7,10 @@ name = "pypi"
 django = "*"
 django-extensions = "*"
 pillow = "*"
+selenium = "*"
+"beautifulsoup4" = "*"
+ipython = "*"
+lxml = "*"
 
 [dev-packages]
 

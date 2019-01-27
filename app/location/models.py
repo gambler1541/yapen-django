@@ -25,6 +25,7 @@ class Pensions(models.Model):
     sub_location = models.ForeignKey('Sub_location',
                                      on_delete=models.CASCADE,
                                      related_name='pension',)
+    ypidx = models.CharField(max_length=100)
     pension_img = models.URLField(blank=True,)
     address = models.TextField(max_length=100, blank=True,)
     check_in = models.CharField(max_length=10, blank=True,)
@@ -32,6 +33,7 @@ class Pensions(models.Model):
     pick_up = models.TextField(max_length=100, blank=True,)
     number_of_room = models.TextField(max_length=10, blank=True,)
     notice = models.TextField(max_length=100, blank=True,)
+    theme = models.TextField(max_length=100, blank=True,)
 
     def __str__(self):
         return self.name
