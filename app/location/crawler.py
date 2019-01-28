@@ -57,5 +57,15 @@ def crawler(location, sub_location):
 
     driver.close()
 
+def room_crawler(ypidx):
+    driver = webdriver.Chrome()
+
+    params = {
+        'ypidx' : ypidx
+    }
+    url = 'http://www.yapen.co.kr/details?' + parse.urlencode(params)
+
+    driver.get(url)
+
 
 
