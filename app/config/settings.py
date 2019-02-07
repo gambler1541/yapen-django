@@ -16,6 +16,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ROOT_DIR = os.path.dirname(BASE_DIR)
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
 print('Base dir:', BASE_DIR)
 print('Root dir:', ROOT_DIR)
 print('Templates dir: ', TEMPLATES_DIR)
